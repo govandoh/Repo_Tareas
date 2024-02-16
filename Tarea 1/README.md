@@ -54,12 +54,18 @@ Además, si el usuario hace nuevas inserciones o actualizaciones, al volver a se
 
 Dentro de la carpeta sourse de este proyecto, hay ejemplos de como se ingresan los datos, como se ejecuta y prueba el programa. 
 
-![Insertar ambos casos](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Insertar_Inicio%20Insertar_Final.png){width='1300px', height='700px'}
+![Insertar ambos casos](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Insertar_Inicio%20Insertar_Final.png)
 
-![Visualizacion Lista Doblemente Enlazada](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Visualizacion_Lista.png){width='1200px', height='700px'}
+![Visualizacion Lista Doblemente Enlazada](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Visualizacion_Lista.png)
 
 ### Otro ejemplo visual de ejecución
-![Visualizacion Lista Doblemente Enlazada](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Ejecucion_DoblementeEnlazada.gif){width='1200px', height='700px'}
+<div>
+<p style = 'text-align:center;'>
+<iframe width="1000" height = "500"
+src="https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%201/source/Ejecucion_DoblementeEnlazada.gif">
+</iframe>
+</div>
+</p>
 
 
 *** 

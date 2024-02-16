@@ -1,3 +1,5 @@
+import graphviz
+
 class Alumno: 
     def __init__(self, nombre, apellido, carnet):
         self.nombre = nombre
@@ -14,6 +16,7 @@ class ListaDoblementeEnlazada:
     def __init__(self):
         self.cabeza = None
         self.cola = None
+        self.cont = 1
     
     def agregar_inicio(self,alumno):
         nuevo_nodo = Nodo(alumno)
@@ -27,22 +30,35 @@ class ListaDoblementeEnlazada:
     
     def agregar_al_final(self, alumno):
         nuevo_nodo = Nodo(alumno)
-        if self.cola == None:               #Valido si la lista está vaci
+        if self.cola == None:               #Valido si la lista está vacia
             self.cabeza = nuevo_nodo        #hago que el nuevo nodo sea la cola como la cabeza
             self.cola = nuevo_nodo
         else:                                   #entra si la lista no esta hacia, y agregara el nuevo nodo al final
-            nuevo_nodo.anterior = self.cola     #el nodo antrior al nuevo sera actualmente la cola de la lista 
+            nuevo_nodo.anterior = self.cola     #el nodo anterior al nuevo sera actualmente la cola de la lista 
             self.cola.siguiente = nuevo_nodo    #se establece que el siguiente nodo de la cola de la lista es el nuevo nodo creado
             self.cola = nuevo_nodo              #se actualiza la referencia de la cola, para que apunte al nuevo nodo creado, nuevo nodo es el ultimo
         
     def imprimir_lista(self):
+        dot = graphviz.Digraph(comment='Lista Doblemente Enlazada')
+        dot.node_attr.update(shape='record', width='.01', height='.1')
+        dot.attr(rankdir='LR',)
+       # Nodo para representar None o Null
+        dot.node('None', 'None')
+        #Conectar el nodo None a la cabeza
+        dot.edge('None', str(self.cabeza), style='invisible', label='', arrowhead='none')
+        dot.edge(str(self.cabeza), 'None', label='Anterior')
+       
         actual = self.cabeza
-        while actual != None:
-            print("Nombre: ", actual.alumno.nombre)
-            print("Apellido: ", actual.alumno.apellido)
-            print("Carnet: ", actual.alumno.carnet)
+        while actual:
+            dot.node(str(actual), f"{{<anterior> | {actual.alumno.nombre}, {actual.alumno.apellido}, {actual.alumno.carnet}  | <siguiente>}}")
+            if actual.anterior:
+                dot.edge(str(actual.anterior), str(actual), label='Siguiente')
+            if actual.siguiente:
+                dot.edge(str(actual.siguiente), str(actual), label='Anterior')
             actual = actual.siguiente
-        print("None")
+            
+        dot.edge(str(self.cola), 'None Final', label='Siguiente')
+        return dot
 
     def eliminar(self, valor):
         actual = self.cabeza
@@ -67,11 +83,9 @@ class ListaDoblementeEnlazada:
                     eliminado = True
                     print("Nodo Eliminado")
                 actual = actual.siguiente
-        
         if eliminado == False:
             print("No se encontro un alumno para eliminar")
     
-
 def imprimirMenu():
     print("---------------------------------------")
     print("TAREA 1 - LISTAS DOBLEMENTE ENLAZADAS")
@@ -112,12 +126,14 @@ while True:
         print(" ")
     elif opcion == 3:
         print("Opcion 3")
-        valor = input("Ingrese el nombre del alumno que desea eliminar")
+        valor = input("Ingrese el nombre del alumno que desea eliminar: ")
         Lista.eliminar(valor)
         print(" ")
-    elif opcion == 4: 
-        print("Se mostrará la lista")
-        Lista.imprimir_lista()
+    elif opcion == 4:
+        impresion = Lista.imprimir_lista()
+        file_name = 'ListaDoble' + str(Lista.cont)
+        Lista.cont += 1
+        impresion.render(filename= file_name, format='png', directory='Programacion-III/Repo_Tareas/Tarea 1/history_graphs', cleanup=True)
+        impresion.view()
     else: 
         print("Opción no valida, ingrese un numero del menu")
-    

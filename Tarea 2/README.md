@@ -58,11 +58,13 @@ Para este caso de uso, el usuario unicamente debe de ingresar por teclado la opc
 Por ultimo cuando número ya no tenga dígitos o sea es cero, se retorna el valor general de la función principal que en este caso es la suma de cada ejecución recursiva. 
 
 
-### Caso de uso: 
+### Caso de uso: Raiz Cuadrada Entera
+**Pasos**
 
 
 
-### Caso de uso: 
+### Caso de uso: Convertir a decimal desde Romano
+**Pasos**
 
 
 
@@ -85,4 +87,18 @@ sumar_numeros(n-1) + n
 ## Ejecución y pruebas
 
 
+**Prueba y Ejecución Opcion 1**
+![Ejecución Opcion 1](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion1_Binario.png)
+
+**Prueba y Ejecución Opcion 2**
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion2_ContarDigitos.png)
+
+**Prueba y Ejecución Opcion 3**
+![Ejecución Opcion 3]()
+
+**Prueba y Ejecución Opcion 4**
+![Ejecución Opcion 4]()
+
+**Prueba y Ejecución Opcion 5**
+![Ejecución Opcion 5](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%202/source/Opcion5_SumaEnteros.png)
 *** 

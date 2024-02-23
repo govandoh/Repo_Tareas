@@ -44,6 +44,16 @@ def calcular_raiz_cuadrada(numero, bajo, alto):
 def raiz_cuadrada_entera(numero):
     return calcular_raiz_cuadrada(numero, 0, numero)
 
+#Opcion 4
+def convertir_a_decimal(romano):
+    valores = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    if len(romano) == 0:
+        return 0
+    elif len(romano) == 1 or valores[romano[0]] >= valores[romano[1]]:
+        return valores[romano[0]] + convertir_a_decimal(romano[1:])
+    else:
+        return valores[romano[1]] - valores[romano[0]] + convertir_a_decimal(romano[2:])
+
 
 #Opcion 5
 def sumar_numeros(num): 
@@ -75,6 +85,8 @@ while True:
         print("La raíz cuadrada entera de", num, "es:", raiz_cuadrada_entera(num))
     elif opcion == 4:
         print("Opcion 4 - Convertir a Decimal desde Romanos \n")
+        num_rom = input("Ingrese el numero romano que desea convertir a decimal: ")
+        print("El numero romano: ", num_rom, "en decimal es: ", convertir_a_decimal(num_rom.upper()))
     elif opcion == 5:
         print("Opcion 5 - Suma de Numeros enteros \n")
         num = int(input("Ingrese el numero hasta el cual desea contar: "))

@@ -94,10 +94,10 @@ sumar_numeros(n-1) + n
 ![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion2_ContarDigitos.png)
 
 **Prueba y Ejecución Opcion 3**
-![Ejecución Opcion 3]()
+![Ejecución Opcion 3](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion3_RaizEntera.png)
 
 **Prueba y Ejecución Opcion 4**
-![Ejecución Opcion 4]()
+![Ejecución Opcion 4](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion4_DecimalToRomano.png)
 
 **Prueba y Ejecución Opcion 5**
 ![Ejecución Opcion 5](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%202/source/Opcion5_SumaEnteros.png)

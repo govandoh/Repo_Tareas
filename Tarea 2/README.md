@@ -8,13 +8,13 @@ Nombre: **Gerardo Antonio Ovando Hernandez**
 Carnet: **9490-21-7**
 Participación: **100%**
 
-Nombre:
-Carnet:
-Participación
+Nombre: **Nery Otoniel Colorado Menchú**
+Carnet: **9490-22-4867**
+Participación: **100%**
 
-Nombre: 
-Carnet:
-Participación: 
+Nombre: **Javier David Pirir Gómez**
+Carnet: **9490-22-15282**
+Participación: **100%**
 
 ***
 

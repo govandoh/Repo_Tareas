@@ -44,6 +44,48 @@ class ABB:
             print("El número ya existe en el árbol \n")
 
         return nodo                         # Devuelve el nodo creado
+    
+    #CODIGO NERY C. - ELIMINAR
+    def eliminar(self, valor, nodo):
+        if nodo is None:
+            return nodo
+
+        # Buscar el nodo a eliminar
+        if valor < nodo.valor:
+            nodo.izq = self.eliminar(valor, nodo.izq)
+        elif valor > nodo.valor:
+            nodo.der = self.eliminar(valor, nodo.der)
+        else:
+            # Caso 1: Nodo sin hijos o con un solo hijo
+            if nodo.izq is None:
+                temp = nodo.der
+                nodo = None
+                return temp
+            elif nodo.der is None:
+                temp = nodo.izq
+                nodo = None
+                return temp
+
+            # Caso 2: Nodo con dos hijos, obtener el sucesor en orden
+            temp = self.obtener_minimo_valor(nodo.der)
+            nodo.valor = temp.valor
+            nodo.der = self.eliminar(temp.valor, nodo.der)
+
+        return nodo
+
+    def obtener_minimo_valor(self, nodo):
+        actual = nodo
+        while actual.izq is not None:
+            actual = actual.izq
+        return actual
+
+    def mainEliminar(self, valor):
+        if self.integridadABB(self.raiz, valor):
+            self.raiz = self.eliminar(valor, self.raiz)
+            print("Número eliminado del árbol ABB")
+        else:
+            print("Error: el número no existe en el árbol ABB")
+
 
 def menuABB():
     print("----------------------------------------------")
@@ -81,11 +123,16 @@ while True:
     elif opcion == 2: 
         print("Opcion 2 - Buscar \n")
         
-        
+
         print(" ")
     elif opcion == 3:
         print("Opcion 3 - Eliminar \n")
-        
+        numero = input("Ingrese el número que desea eliminar del arbol: ")
+        try:
+            numero = int(numero)  # Convertir el string a entero para eliminarlo
+            arbol.mainEliminar(numero)
+        except ValueError:
+            print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")
     elif opcion == 4:
         print("Opcion 4 - Cargar desde Archivo txt \n")

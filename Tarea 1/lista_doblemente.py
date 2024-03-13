@@ -21,8 +21,8 @@ class ListaDoblementeEnlazada:
     def agregar_inicio(self,alumno):
         nuevo_nodo = Nodo(alumno)
         nuevo_nodo.siguiente = self.cabeza
-        if self.cabeza != None:
-            self.cabeza.anterior = nuevo_nodo
+        if self.cabeza != None:                 #veo si la lista no esta vacia
+            self.cabeza.anterior = nuevo_nodo   #hago referencia a que la cabeza temporal tiene como anterior  el nuevo nodo creado
         self.cabeza = nuevo_nodo
         
         if self.cola == None:

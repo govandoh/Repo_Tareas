@@ -8,6 +8,42 @@ class ABB:
     def  __init__(self):
         self.raiz = None        # Raíz de la árbol binario de búsqueda
 
+    def integridadABB(self, nodo, valor):
+        if nodo == None: 
+            return True
+
+        if valor < nodo.valor:
+            return self.integridadABB(nodo.izq, valor)
+        elif valor > nodo.valor:
+            if nodo.izq == None and valor >= nodo.valor:
+                return False
+            return self.integridadABB(nodo.der, valor)  
+        else:
+            print("El número ya existe en el árbol!! \n")
+            return False
+
+    def mainInsert(self, valor):        # Inserta un número en el árbol
+        if self.integridadABB(self.raiz, valor):
+            self.raiz = self.insert(valor, self.raiz)
+            print("Número agregado al árbol ABB")
+        else:
+            print("Error: la inserción haría que el árbol deje de ser un árbol ABB")
+
+
+    def insert(self, valor, nodo):
+        if (nodo == None) :                 # Si el árbol está vacio
+            return Nodo(valor)              # Crea un nuevo nodo con el dato introducido y devuelve el mismo
+
+        if (valor < nodo.valor):            # Si el valor es menor que el nodo raíz
+            nodo.izq = self.insert(valor, nodo.izq) # Hago que el nodo izquierdo haga una llamada recursiva a insert()
+
+        if (valor > nodo.valor):            # Si el valor es mayor que el nodo raíz
+            nodo.der = self.insert(valor, nodo.der) # Hago que el nodo derecho haga una llamada recursiva a insert()
+
+        if (valor == nodo.valor): 
+            print("El número ya existe en el árbol \n")
+
+        return nodo                         # Devuelve el nodo creado
 
 def menuABB():
     print("----------------------------------------------")
@@ -20,18 +56,27 @@ def menuABB():
     print("6. Salir")
 
 opcion = 0
+arbol = ABB()
 
 while True: 
     menuABB()
     opcion = input("Ingrese el numero de la opcion que desea ejecutar: ")
     print(" ")
-    opcion = int(opcion)
+    try:
+        opcion = int(opcion)                # Convierto el string a entero
+    except ValueError:
+        print("Error: entrada no es número")
+    
     if opcion == 6:
         break
     if opcion == 1:
         print("Opcion 1 - Agregar \n")
-        
-        print("Número agregado al árbol ABB")
+        numero = input("Ingrese el número que desea insertar al arbol: ")
+        try:
+            numero = int(numero)        # Convierto el string a entero para insertarlo
+            arbol.mainInsert(numero)
+        except ValueError:
+            print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")
     elif opcion == 2: 
         print("Opcion 2 - Buscar \n")

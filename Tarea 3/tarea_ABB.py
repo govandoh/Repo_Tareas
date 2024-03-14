@@ -45,7 +45,7 @@ class ABB:
 
         return nodo                         # Devuelve el nodo creado
     
-    #CODIGO NERY C. - ELIMINAR nuevo
+    #CODIGO NERY C. - ELIMINAR nueva validacion
     def eliminar(self, valor, nodo):
         if nodo == None:
             return nodo

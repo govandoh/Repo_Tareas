@@ -45,46 +45,37 @@ class ABB:
 
         return nodo                         # Devuelve el nodo creado
     
-    #CODIGO NERY C. - ELIMINAR
+    #CODIGO NERY C. - ELIMINAR nuevo
     def eliminar(self, valor, nodo):
-        if nodo is None:
+        if nodo == None:
             return nodo
 
-        # Buscar el nodo a eliminar
         if valor < nodo.valor:
             nodo.izq = self.eliminar(valor, nodo.izq)
+
         elif valor > nodo.valor:
             nodo.der = self.eliminar(valor, nodo.der)
-        else:
-            # Caso 1: Nodo sin hijos o con un solo hijo
-            if nodo.izq is None:
-                temp = nodo.der
-                nodo = None
-                return temp
-            elif nodo.der is None:
-                temp = nodo.izq
-                nodo = None
-                return temp
 
-            # Caso 2: Nodo con dos hijos, obtener el sucesor en orden
-            temp = self.obtener_minimo_valor(nodo.der)
+        else:
+            if nodo.izq == None:
+                return nodo.der
+
+            elif nodo.der == None:
+                return nodo.izq
+
+            temp = self.minValueNode(nodo.der)
             nodo.valor = temp.valor
             nodo.der = self.eliminar(temp.valor, nodo.der)
 
         return nodo
 
-    def obtener_minimo_valor(self, nodo):
-        actual = nodo
-        while actual.izq is not None:
-            actual = actual.izq
-        return actual
+    def minValueNode(self, nodo):
+        current = nodo
+        while current.izq != None:
+            current = current.izq
 
-    def mainEliminar(self, valor):
-        if self.integridadABB(self.raiz, valor):
-            self.raiz = self.eliminar(valor, self.raiz)
-            print("Número eliminado del árbol ABB")
-        else:
-            print("Error: el número no existe en el árbol ABB")
+        return current
+
 
 
 def menuABB():
@@ -127,13 +118,15 @@ while True:
         print(" ")
     elif opcion == 3:
         print("Opcion 3 - Eliminar \n")
-        numero = input("Ingrese el número que desea eliminar del arbol: ")
+        numero = input("Ingrese el número que desea eliminar del árbol:")
         try:
-            numero = int(numero)  # Convertir el string a entero para eliminarlo
-            arbol.mainEliminar(numero)
+            numero = int(numero)
+            arbol.eliminar(numero, arbol.raiz)
+            print("El número", numero, "fue eliminado del árbol.")
         except ValueError:
             print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")
+
     elif opcion == 4:
         print("Opcion 4 - Cargar desde Archivo txt \n")
         

@@ -15,10 +15,12 @@ class ABB:
             return True
 
         if valor < nodo.valor:
+            if nodo.izq == None:
+                return True   
             return self.integridadABB(nodo.izq, valor)
         elif valor > nodo.valor:
-            if nodo.izq == None and valor >= nodo.valor:
-                return False
+            if nodo.der == None: 
+                return True
             return self.integridadABB(nodo.der, valor)  
         else:
             print(Fore.RED + "El número" , valor,  "ya existe en el árbol!!"+ Fore.RESET)
@@ -56,6 +58,14 @@ class ABB:
                         print(Fore. RED + f"Error: '{num.strip()}' no es un número válido y no se insertará en el árbol. \n" + Fore.RESET)
             print("\n Datos cargados al árbol ABB desde archivo")
         archivo.close                                       #Cierro el archivo
+    
+    def inorder (self,nodo):
+        if nodo is not None:
+            if nodo.izq != None:
+                self.inorder(nodo.izq)
+            print(nodo.valor)
+            if(nodo.der != None):
+                self.inorder(nodo.der)
     
     #CODIGO NERY C. - ELIMINAR nueva validacion
     def eliminar(self, valor, nodo):
@@ -146,7 +156,7 @@ while True:
         print(" ")
     elif opcion == 5: 
         print("Opcion 5 - Visualización Árbol  ABB con Graphviz \n")
-        
+        arbol.inorder(arbol.raiz)   
         print(" ")
     else: 
         print("Opción no valida, ingrese un numero del menu \n")

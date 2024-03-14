@@ -1,3 +1,5 @@
+from colorama import Fore
+
 class Nodo:
     def __init__(self, number):
         self.valor = number     # Indica el valor del nodo
@@ -19,15 +21,15 @@ class ABB:
                 return False
             return self.integridadABB(nodo.der, valor)  
         else:
-            print("El número ya existe en el árbol!! \n")
+            print(Fore.RED + "El número" , valor,  "ya existe en el árbol!!"+ Fore.RESET)
             return False
 
     def mainInsert(self, valor):        # Inserta un número en el árbol
         if self.integridadABB(self.raiz, valor):
             self.raiz = self.insert(valor, self.raiz)
-            print("Número agregado al árbol ABB")
+            print(Fore.GREEN + "Número: ", valor ,  "agregado al árbol ABB" + Fore.RESET)
         else:
-            print("Error: la inserción haría que el árbol deje de ser un árbol ABB")
+            print(Fore.RED + "Error: la inserción de: ", valor ,  "haría que el árbol deje de ser un árbol ABB \n" + Fore.RESET)
 
 
     def insert(self, valor, nodo):
@@ -40,10 +42,20 @@ class ABB:
         if (valor > nodo.valor):            # Si el valor es mayor que el nodo raíz
             nodo.der = self.insert(valor, nodo.der) # Hago que el nodo derecho haga una llamada recursiva a insert()
 
-        if (valor == nodo.valor): 
-            print("El número ya existe en el árbol \n")
-
         return nodo                         # Devuelve el nodo creado
+    
+    def cargarArchivo(self, path):
+        with open(path, 'r') as archivo:                    #Abro el archivo
+            for linea in archivo:                           #Recorrido del archivo
+                numeros= linea.split(',')                   #Creo una lista de numeros, por cada linea del archivo (cada num esta separado una coma en el archivo, por eso se usa split(',') )
+                for num in numeros:
+                    try:
+                        valor = int(num.strip())            #Intento parsear a tipo entero, cada numero en la lista numeros
+                        self.mainInsert(valor)              #Inserto los valores del archivo al ABB (implicitamente uso logica de integridadABB y insert)
+                    except ValueError:
+                        print(Fore. RED + f"Error: '{num.strip()}' no es un número válido y no se insertará en el árbol. \n" + Fore.RESET)
+            print("\n Datos cargados al árbol ABB desde archivo")
+        archivo.close                                       #Cierro el archivo
     
     #CODIGO NERY C. - ELIMINAR nueva validacion
     def eliminar(self, valor, nodo):
@@ -75,8 +87,6 @@ class ABB:
             current = current.izq
 
         return current
-
-
 
 def menuABB():
     print("----------------------------------------------")
@@ -126,10 +136,13 @@ while True:
         except ValueError:
             print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")
-
     elif opcion == 4:
         print("Opcion 4 - Cargar desde Archivo txt \n")
-        
+        nombreArchivo = input("Arraste el archivo al terminar para cargar  los numeros: \n")
+        try:
+            arbol.cargarArchivo(nombreArchivo)
+        except FileNotFoundError:
+            print("\n Error: No se encontró el archivo indicado")
         print(" ")
     elif opcion == 5: 
         print("Opcion 5 - Visualización Árbol  ABB con Graphviz \n")

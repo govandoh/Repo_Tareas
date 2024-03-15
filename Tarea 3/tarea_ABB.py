@@ -1,3 +1,5 @@
+from graphviz import Digraph
+
 class Nodo:
     def __init__(self, number):
         self.valor = number     # Indica el valor del nodo
@@ -76,7 +78,21 @@ class ABB:
 
         return current
 
+    def generar_dot(self, nodo, dot):
+        if nodo is not None:
+            dot.node(str(nodo.valor))
+        if nodo.izq is not None:
+            dot.edge(str(nodo.valor), str(nodo.izq.valor))
+            self.generar_dot(nodo.izq, dot)
+        if nodo.der is not None:
+            dot.edge(str(nodo.valor), str(nodo.der.valor))
+            self.generar_dot(nodo.der, dot)
 
+    def mostrar_grafico(self):
+        dot = Digraph()
+        self.generar_dot(self.raiz, dot)
+        dot.render('arbol', format='png', view=True, directory='Programacion-III/Repo_Tareas/Tarea 3/ABB_history', cleanup=True)  
+        # Guarda el archivo DOT como PNG y lo muestra
 
 def menuABB():
     print("----------------------------------------------")
@@ -133,6 +149,7 @@ while True:
         print(" ")
     elif opcion == 5: 
         print("Opcion 5 - Visualización Árbol  ABB con Graphviz \n")
+        arbol.mostrar_grafico()
         
         print(" ")
     else: 

@@ -1,4 +1,5 @@
 from graphviz import Digraph
+from colorama import Fore
 
 class Nodo:
     def __init__(self, number):
@@ -173,7 +174,6 @@ while True:
     elif opcion == 5: 
         print("Opcion 5 - Visualización Árbol  ABB con Graphviz \n")
         arbol.mostrar_grafico()
-        
         print(" ")
     else: 
         print("Opción no valida, ingrese un numero del menu \n")

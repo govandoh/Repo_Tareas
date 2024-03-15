@@ -71,6 +71,7 @@ class ABB:
     #CODIGO NERY C. - ELIMINAR nueva validacion
     def eliminar(self, valor, nodo):
         if nodo == None:
+            print(Fore.RED + f"El número: {valor} no existe en el ABB, no se eliminó nada \n" + Fore.RESET)
             return nodo
 
         if valor < nodo.valor:
@@ -80,6 +81,7 @@ class ABB:
             nodo.der = self.eliminar(valor, nodo.der)
 
         else:
+            print(Fore.GREEN + "El número", numero, "fue eliminado del árbol." + Fore.RESET)
             if nodo.izq == None:
                 return nodo.der
 
@@ -89,7 +91,7 @@ class ABB:
             temp = self.minValueNode(nodo.der)
             nodo.valor = temp.valor
             nodo.der = self.eliminar(temp.valor, nodo.der)
-
+        
         return nodo
 
     def minValueNode(self, nodo):
@@ -158,8 +160,7 @@ while True:
         numero = input("Ingrese el número que desea eliminar del árbol:")
         try:
             numero = int(numero)
-            arbol.eliminar(numero, arbol.raiz)
-            print("El número", numero, "fue eliminado del árbol.")
+            eliminado = arbol.eliminar(numero, arbol.raiz)
         except ValueError:
             print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")

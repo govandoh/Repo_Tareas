@@ -37,8 +37,33 @@ Este caso de, simplemente el usuario, luego de seleccionar la opción 1; se le s
 
 
 
-### Caso de uso: 
+### Caso de uso: 3 Eliminar un Número del Árbol binario de Busqueda
 **Pasos**
+1. Ingresar el árbol binario utilizando la opción 1.
+2. Ingresa el número que se desea eliminar del árbol binario
+3. En dado caso no exista el número en el árbol no se realizara la eliminación, por lo contrario se realizara correctamente.
+
+### Por Ejemplo
+1. Ingresar el siguiente arbol binario: 5, 3, 7, 2, 4
+2. El arbol quedaria de la siguiente manera:
+        5
+      /   \
+     3     7
+    / \    
+   2   4
+
+3. Ahora si eliminamos el número 7 del árbol binario de búsqueda, el diagrama quedaría así:
+        5
+      /   \
+     3     5
+    /
+   2
+En este caso, el nodo con el valor 7 tenía un nodo hijo a la izquierda (el nodo con el valor 4), por lo que reemplazamos el valor del nodo con el valor más pequeño del subárbol derecho (el nodo con el valor 5)
+
+Este diagrama se baso en las siguientes condiciones para realizar su eliminación:
+-Si el nodo a eliminar no tiene hijos, simplemente eliminarlo.
+-Si el nodo a eliminar tiene un hijo, reemplazar el nodo a eliminar con su hijo.
+-Si el nodo a eliminar tiene dos hijos, buscar el nodo inmediatamente mayor al nodo a eliminar (sucesor) y reemplazar el nodo a eliminar con este nodo inmediatamente mayor. Luego, eliminar el nodo inmediatamente mayor del árbol.
 
 
 ### Caso de uso 4: Cargar desde archivo .txt

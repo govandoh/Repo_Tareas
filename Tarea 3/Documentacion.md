@@ -105,7 +105,7 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 ![]()
 
 **Prueba y Ejecución Opción 3**
-![]()
+![Opcion Eliminar de arbol binario](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%206.png)
 
 **Prueba y Ejecución Opción 4**
 ![]()
@@ -126,4 +126,14 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 ![Prueba 3](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/pruebas3.png)
 
 ![Prueba 4](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/pruebas4.png)
+
+**Prueba de opcion 3 (eliminar un nodo del arbol ABB)
+![Prueba 1]()
+![Prueba 2]()
+![Prueba 3]()
+![Prueba 4]()
+![Prueba 5]()
+![Prueba 6]()
+
+
 

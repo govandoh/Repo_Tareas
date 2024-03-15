@@ -128,12 +128,17 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 ![Prueba 4](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/pruebas4.png)
 
 **Prueba de opcion 3 (eliminar un nodo del arbol ABB)
-![Prueba 1]()
-![Prueba 2]()
-![Prueba 3]()
-![Prueba 4]()
-![Prueba 5]()
-![Prueba 6]()
+![Prueba 1](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%201.png)
+
+![Prueba 2](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%202.png)
+
+![Prueba 3](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%203.png)
+
+![Prueba 4](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%204.png)
+
+![Prueba 5](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%205.png)
+
+![Prueba 6](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%206.png)
 
 
 

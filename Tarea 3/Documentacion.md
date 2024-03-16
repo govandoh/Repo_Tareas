@@ -117,7 +117,7 @@ El segundo metodo se llama al primer metodo en la raiz del arbol para generar el
 ![Opción Insertar en ABB](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_insertarABB.gif)
 
 **Prueba y Ejecución Opción 2**
-![Opción Buscar en ABB](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/tarea_ABB.py - Repo_Tareas - Visual Studio Code 2024-03-15 20-19-15.gif)
+![Opción Buscar en ABB](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/tarea_ABB.py%20-%20Repo_Tareas%20-%20Visual%20Studio%20Code%202024-03-15%2020-19-15.gif)
 
 
 **Prueba y Ejecución Opción 3**
@@ -128,7 +128,7 @@ El segundo metodo se llama al primer metodo en la raiz del arbol para generar el
 ![Opción cargar desde Archivo](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_cargardesdeArchivo.gif)
 
 **Prueba y Ejecución Opción 5**
-![Opcion Mostrar ABB via Graphviz]((https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_cargardesdeArchivo.gif))
+![Opcion Mostrar ABB via Graphviz](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba_opcion5.gif)
 
 *** 
 

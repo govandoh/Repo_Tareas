@@ -31,9 +31,16 @@ Este caso de, simplemente el usuario, luego de seleccionar la opción 1; se le s
 
 
 
-### Caso de uso: 
-
 **Pasos**
+1. Seleccionar opción 2 del menú. 
+2. Insertar el número que desea Buscar al árbol. 
+3. El programa internamente hace todos los procedimientos para validar la busqueda. 
+4. Si es una busqueda correcta, se le notifica al usuario por consola, sinó igual notificá la razón porque el número no es válido para ser buscado en el árbol, puede ser que diga que el número se encuentra en el arbol o no se encuentra en el arbol.
+   
+### Por Ejemplo
+Usuario selecciona opción 2; ingresa el número que desea buscar en el ABB
+
+- Internamente, la opción buscar utiliza la funciones **buscar**, para validar si el nodo no existe retornara falso y si nodo tiene valor y es igual al que el usuario registro retornara true luego valida si el valor es menor o mayor que el numero que se registró se realiza una llamada al lado izquierdo o derecho recursiva a buscar.
 
 
 
@@ -102,7 +109,8 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 ![Opción Insertar en ABB](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_insertarABB.gif)
 
 **Prueba y Ejecución Opción 2**
-![]()
+![Opción Buscar en ABB](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/tarea_ABB.py - Repo_Tareas - Visual Studio Code 2024-03-15 20-19-15.gif)
+
 
 **Prueba y Ejecución Opción 3**
 ![Opcion Eliminar de arbol binario](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%206.png)
@@ -126,6 +134,15 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 ![Prueba 3](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/pruebas3.png)
 
 ![Prueba 4](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/pruebas4.png)
+
+**Prueba de opcion 2 (Buscar un nodo del arbol ABB)
+![Prueba 1](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/Buscar_Prueba1)
+
+![Prueba 2](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/Buscar_Prueba2)
+
+![Prueba 3](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/Buscar_Prueba3)
+
+![Prueba 4](https://github.com/govandoh/Repo_Tareas/tree/e390de65afb5c76a88286e86a6dc7cc6f25ac382/Tarea%203/source/Buscar_Prueba4)
 
 **Prueba de opcion 3 (eliminar un nodo del arbol ABB)
 ![Prueba 1](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%201.png)

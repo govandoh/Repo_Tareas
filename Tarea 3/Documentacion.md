@@ -97,13 +97,21 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 
  ***Con todas estas validaciones, comprobamos los diferentes comportamientos posibles que el usuario podría tener en el programa, y así no perder la integridad y propiedades de un árbol binario de búsqueda.***
 
-### Caso de uso: 
+### Caso de uso 5: Mostrar ABB vía Graphviz
 **Pasos**
 
+1. Seleccionar la opción 5 del menú.
+2. Abrir el gestor de imagenes para poder visualizar el arbol generado por Graphviz
+
+Internamente para mostrar el ABB utilizamos dos metodos: El primer metodo es una funcion recursiva que toma como argumentos un nodo del arbol y un objeto de Graphviz llamado dot. 
+Primero se valida si hay un nodo existente, si lo hay, el volor del nodo se convierte a texto y se añade a un objeto de tipo dot (nuestro grafico). 
+Luego se verifica si el nodo actual tiene un hijo izquierdo, si lo tiene, se añade una arista al grafico y se llama recursivamente al mismo metodo en el hijo izquierdo, asi se explora el subarbol izquierdo. 
+Luego se verifica si el nodo actual tiene un hijo derecho, si lo tiene, se añade una arista al grafico y se llama recursivamente al mismo metodo en el hijo derecho y asi se explora el subarbol derecho.
+
+El segundo metodo se llama al primer metodo en la raiz del arbol para generar el grafico y luego compila el grafico como un archvo PNG en el directorio especificado en el codigo.
 
 
 ## Ejecución y pruebas
-
 
 **Prueba y Ejecución Opción 1**
 ![Opción Insertar en ABB](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_insertarABB.gif)
@@ -115,11 +123,13 @@ Dentro de esta funcionalidad, se reutilizó funciones como integridadABB, insert
 **Prueba y Ejecución Opción 3**
 ![Opcion Eliminar de arbol binario](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%203/source/Prueba%20Eliminar%206.png)
 
+
 **Prueba y Ejecución Opción 4**
-![]()
+![Opción cargar desde Archivo](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_cargardesdeArchivo.gif)
 
 **Prueba y Ejecución Opción 5**
-![Opción cargar desde Archivo](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_cargardesdeArchivo.gif)
+![Opcion Mostrar ABB via Graphviz]((https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%203/source/opcion_cargardesdeArchivo.gif))
+
 *** 
 
 

@@ -46,7 +46,16 @@ class ABB:
             nodo.der = self.insert(valor, nodo.der) # Hago que el nodo derecho haga una llamada recursiva a insert()
 
         return nodo                         # Devuelve el nodo creado
-    
+                                           
+    def buscar(self, valor, nodo):             #BUSCAR Jaqueline
+        if nodo is None:
+            return False
+        if nodo.valor == valor:
+            return True
+        elif valor < nodo.valor:
+            return self.buscar(valor, nodo.izq)
+        else:
+            return self.buscar(valor, nodo.der)
     def cargarArchivo(self, path):
         with open(path, 'r') as archivo:                    #Abro el archivo
             for linea in archivo:                           #Recorrido del archivo
@@ -150,8 +159,19 @@ while True:
         except ValueError:
             print("Error: dato incorrecto para el árbol, ingrese unicamente números")
         print(" ")
-    elif opcion == 2: 
+    elif opcion == 2:  
         print("Opcion 2 - Buscar \n")
+        numero = input("Ingrese el número que desea buscar en el árbol: ")
+        try:
+            numero = int(numero)
+            encontrado = arbol.buscar(numero, arbol.raiz)
+            if encontrado:
+                print(f"El número {numero} se encuentra en el árbol.")
+            else:
+                print(f"El número {numero} no se encuentra en el árbol.")
+        except ValueError:
+            print("Error: entrada no válida para búsqueda, ingrese unicamente números")
+        print(" ")
         
 
         print(" ")

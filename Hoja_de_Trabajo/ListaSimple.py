@@ -51,10 +51,28 @@ with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
 
 fin_tiempo = time.time()  # Finalizar el contador de tiempo
 
+tiempo_ejecucion = fin_tiempo - inicio_tiempo
+print(f" \n Tiempo de ejecución: {tiempo_ejecucion} segundos, para hacer prueba de carga masiva \n")
+
+
 # Mostrar los datos de la lista
+inicio_tiempo = time.time()
+
 print("Contenido de la lista cargado desde el archivo CSV:")
 mi_lista.imprimir_lista()
 
+fin_tiempo = time.time()
+
 # Calcular el tiempo de ejecución
 tiempo_ejecucion = fin_tiempo - inicio_tiempo
-print(f"Tiempo de ejecución: {tiempo_ejecucion} segundos")
+print(f"\n Tiempo de ejecución: {tiempo_ejecucion} segundos, requerido para mostrar la carga masiva \n")
+
+
+inicio_tiempo = time.time()
+
+mi_lista.retirar_ultimo()
+
+fin_tiempo = time.time()
+
+tiempo_ejecucion = fin_tiempo - inicio_tiempo
+print(f"\n Tiempo de ejecución: {tiempo_ejecucion} segundos, requerido eliminar último \n")

@@ -47,7 +47,7 @@ inicio_tiempo = time.time()  # Iniciar el contador de tiempo
 with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
     lector_csv = csv.DictReader(csvfile)
     for fila in lector_csv:
-        mi_lista.agregar_elemento(fila['ID'])
+        mi_lista.agregar_elemento(fila['CT'])       #Para que los archivos se lean hay que cambiar el identificador de la columna que se desea tomar. 
 
 fin_tiempo = time.time()  # Finalizar el contador de tiempo
 

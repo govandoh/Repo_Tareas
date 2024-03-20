@@ -25,11 +25,54 @@ class ABB:
         
         return nodo
 
-    def inorder(self, nodo):
-        if nodo is not None:
-            self.inorder(nodo.izq)
-            print(nodo.valor)
-            self.inorder(nodo.der)
+    def delete(self, valor):
+        self.raiz = self._delete(self.raiz, valor)
+
+    def _delete(self, node, valor):
+        if node is None:
+            return node
+
+        if valor < node.valor:
+            node.izq = self._delete(node.izq, valor)
+        elif valor > node.valor:
+            node.der = self._delete(node.der, valor)
+        else:
+            if node.izq is None:
+                return node.der
+            elif node.der is None:
+                return node.leizqft
+
+            node.valor = self._find_min(node.der).valor
+            node.right = self._delete(node.der, node.valor)
+
+        return node
+
+    def _find_min(self, node):
+        while node.izq is not None:
+            node = node.izq
+        return node
+    
+    def _find_max(self, node):
+        while node.der is not None:
+            node = node.der
+        return node
+    
+    
+    
+    def postorder(self, nodo):
+        if nodo is None:
+            return
+        
+        ultimo_nodo_visitado = None
+        while nodo:
+            if nodo.izq and nodo.izq != ultimo_nodo_visitado and nodo.der != ultimo_nodo_visitado:
+                nodo = nodo.izq
+            elif nodo.der and nodo.der != ultimo_nodo_visitado:
+                nodo = nodo.der
+            else:
+                print(nodo.valor)
+                ultimo_nodo_visitado = nodo
+                nodo = nodo.padre
 
 # Crear instancia del ABB
 abb = ABB()

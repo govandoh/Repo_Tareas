@@ -58,23 +58,14 @@ class ABB:
             node = node.der
         return node
     
-    
-    
-    def postorder(self, nodo):
-        if nodo is None:
-            return
-        
-        ultimo_nodo_visitado = None
-        while nodo:
-            if nodo.izq and nodo.izq != ultimo_nodo_visitado and nodo.der != ultimo_nodo_visitado:
-                nodo = nodo.izq
-            elif nodo.der and nodo.der != ultimo_nodo_visitado:
-                nodo = nodo.der
-            else:
-                print(nodo.valor)
-                ultimo_nodo_visitado = nodo
-                nodo = nodo.padre
-
+    def inorder (self,nodo):
+        if nodo is not None:
+            if nodo.izq != None:
+                self.inorder(nodo.izq)
+            if(nodo.der != None):
+                self.inorder(nodo.der)
+            print(nodo.valor)
+            
 # Crear instancia del ABB
 abb = ABB()
 
@@ -87,7 +78,7 @@ inicio_tiempo = time.time()
 with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
     lector_csv = csv.DictReader(csvfile)
     for fila in lector_csv:
-        valor = fila['CT']  # Suponiendo que 'id' es la columna con los valores a insertar
+        valor = fila['object id']  # Suponiendo que 'id' es la columna con los valores a insertar
         abb.insert(valor)
 # Finalizar contador de tiempo
 fin_tiempo = time.time()
@@ -99,18 +90,17 @@ print(f"\n Tiempo requerido de carga masiva: {tiempo_ejecucion} segundos \n")
 # Mostrar el contenido del árbol ABB
 print("Contenido del árbol binario de búsqueda:")
 inicio_tiempo = time.time()
-abb.postorder(abb.raiz)
+abb.inorder(abb.raiz)
 fin_tiempo = time.time()
 tiempo_ejecucion = fin_tiempo - inicio_tiempo
 print(f"\n Tiempo de ejecución, para mostrar post order: {tiempo_ejecucion} segundos \n")
 
 
 inicio_tiempo = time.time()
-abb.delete('338')
+abb.delete('')
 fin_tiempo = time.time()
 tiempo_ejecucion = fin_tiempo - inicio_tiempo
 print(f"\n Tiempo de ejecución, para eliminar: {tiempo_ejecucion} segundos \n")
-
 
 #338
 #13

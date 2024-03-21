@@ -5,6 +5,7 @@ class nodoArbol:
     def __init__(self, valor):
         self.izq = None
         self.der = None
+        self.padre  = None
         self.valor = valor
 
 class ABB:
@@ -82,21 +83,37 @@ archivo_csv = input('Seleccione un archivo CSV: ')
 
 # Iniciar contador de tiempo
 inicio_tiempo = time.time()
-
 # Cargar el archivo CSV y agregar cada fila al ABB
 with open(archivo_csv, newline='', encoding='utf-8') as csvfile:
     lector_csv = csv.DictReader(csvfile)
     for fila in lector_csv:
-        valor = fila['id']  # Suponiendo que 'id' es la columna con los valores a insertar
+        valor = fila['CT']  # Suponiendo que 'id' es la columna con los valores a insertar
         abb.insert(valor)
-
 # Finalizar contador de tiempo
 fin_tiempo = time.time()
 
+tiempo_ejecucion = fin_tiempo - inicio_tiempo
+print(f"\n Tiempo requerido de carga masiva: {tiempo_ejecucion} segundos \n")
+
+
 # Mostrar el contenido del árbol ABB
 print("Contenido del árbol binario de búsqueda:")
-abb.inorder(abb.raiz)
-
-# Calcular y mostrar el tiempo de ejecución
+inicio_tiempo = time.time()
+abb.postorder(abb.raiz)
+fin_tiempo = time.time()
 tiempo_ejecucion = fin_tiempo - inicio_tiempo
-print(f"Tiempo de ejecución de carga del archivo: {tiempo_ejecucion} segundos")
+print(f"\n Tiempo de ejecución, para mostrar post order: {tiempo_ejecucion} segundos \n")
+
+
+inicio_tiempo = time.time()
+abb.delete('338')
+fin_tiempo = time.time()
+tiempo_ejecucion = fin_tiempo - inicio_tiempo
+print(f"\n Tiempo de ejecución, para eliminar: {tiempo_ejecucion} segundos \n")
+
+
+#338
+#13
+#7909
+#70
+#34196

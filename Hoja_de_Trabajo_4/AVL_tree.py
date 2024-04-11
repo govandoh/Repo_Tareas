@@ -87,18 +87,15 @@ class AVLTree:
                 print_tree_node(node.left, indent + 4)
 
         return print_tree_node(self.root)
-
-# if __name__ == "__main__":
-#     avl_tree = AVLTree()
-#     for value in [1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8]:
-#         avl_tree.insert(value)
-#     avl_tree.view_Tree()
-#     avl_tree.print_tree()
-
-avl = AVLTree()
-
-for value in [1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8]:
-    avl.insert(value)
     
-avl.print_tree()
-avl.view_Tree()
+    def get_all_nodes(self):
+        nodes = []
+        self._get_all_nodes(self.root, nodes)
+        return nodes
+
+
+    def _get_all_nodes(self,node,nodes):
+        if node:
+            self._get_all_nodes(node.left,nodes)
+            nodes.append(node.key)
+            self._get_all_nodes(node.right,nodes)

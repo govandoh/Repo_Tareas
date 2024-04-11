@@ -7,7 +7,7 @@ app = Flask(__name__)
 if __name__ == '__main__':
     app.run(debug=True)
 
-# Ruta principal
+# Ruta principal prueba
 
 @app.route('/', methods=['GET'])
 def index():

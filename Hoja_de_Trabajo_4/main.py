@@ -33,7 +33,7 @@ def viewTree():
     
     return jsonify({'nodos': nodes}),200
         
-        
+
 ##Punto 2 - Inserción manual de registros
 @app.route('/insertarRegistro', methods=['POST'])
 def insertarRegistro():
@@ -42,15 +42,15 @@ def insertarRegistro():
         data = request.get_json()
         
         # Asegúrate de que los datos recibidos contienen la información necesaria para insertar en el árbol
-        if 'key' not in data:
-            return jsonify({'error': 'El campo "key" es requerido'}), 400
+        if 'Unique ID' not in data:
+            return jsonify({'error': 'El campo "Unique Id" es requerido'}), 400
         
         # Inserta el registro en el árbol AVL
-        avl_tree.insert(data['key'])
+        avl_tree.insert(data['Unique ID'])
         
         return jsonify({'message': 'Registro insertado exitosamente'}), 200
     except Exception as e:
-        return jsonify({'error': f'Error al insertar el registro: {e}'}), 500    
+        return jsonify({'error': f'Error al insertar el registro: {e}'}), 500
 
 
 if __name__ == '__main__':

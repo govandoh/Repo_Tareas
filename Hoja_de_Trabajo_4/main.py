@@ -52,8 +52,22 @@ def insertarRegistro():
     except Exception as e:
         return jsonify({'error': f'Error al insertar el registro: {e}'}), 500
 
-
 if __name__ == '__main__':
     app.run(debug=True)
     
-            
+    
+##Punto 3 - Busqueda de registros
+@app.route('/buscarRegistro/<id>', methods=['GET'])
+def buscarRegistro(id):
+    try:
+        # Busca el registro en el árbol AVL
+        nodo = avl_tree.search(id)
+        
+        # Si el nodo no se encuentra, devuelve un mensaje de error
+        if nodo is None:
+            return jsonify({'error': 'Registro no encontrado'}), 404
+        
+        # Si el nodo se encuentra, devuelve los datos del nodo
+        return jsonify({'registro': nodo.data}), 200
+    except Exception as e:
+        return jsonify({'error': f'Error al buscar el registro: {e}'}), 500

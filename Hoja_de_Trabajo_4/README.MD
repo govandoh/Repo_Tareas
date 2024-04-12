@@ -13,8 +13,7 @@
 
 **Nota**
 Para comprobar que si funcionó la carga masiva, puede utilizar desde cualquier navegador, el siguiente metodo GET, para visualizar el árbol AVL. 
-http://127.0.0.1:5000/viewTree
-
+https://repo-tareas.onrender.com/viewTree
 
 ### Insertar manualmente
 
@@ -31,7 +30,7 @@ http://127.0.0.1:5000/viewTree
 
 **Nota**
 Para comprobar que si funcionó la inserción manual, puede utilizar desde cualquier navegador, el siguiente metodo GET, para visualizar el árbol AVL. 
-http://127.0.0.1:5000/viewTree
+https://repo-tareas.onrender.com/viewTree
 
 ### Buscar registro
 

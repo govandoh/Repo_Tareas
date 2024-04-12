@@ -13,6 +13,9 @@ avl_tree = AVLTree()
 def root():
     return jsonify({'message': 'API implementada para hoja de trabajo 4'})
 
+#Punto 1 - Cargar registros desde un archivo CSV
+#Tomar en cuenta que al ser un metodo post se debe usar una herramienta como postman, (no es necesario params o body)
+
 @app.route('/cargarCSV', methods=['POST'])
 def createByFile():
     try:

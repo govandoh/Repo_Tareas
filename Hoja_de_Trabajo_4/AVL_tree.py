@@ -101,13 +101,14 @@ class AVLTree:
             self._get_all_nodes(node.right,nodes)
             
                
-    def search(self, key, node):
-        if node is None:
-            print("No encontrado")
-            return Node(-1) 
-        if node.key == key:
+    def search(self, key):
+        return self._search(self.root, key)
+
+    def _search(self, node, key):
+        if node is None or node.key == key:
             return node
-        if(key < node.key):
-            return self.search(key, node.left)
-        else:
-            return self.search(key, node.right)
+
+        if key < node.key:
+            return self._search(node.left, key)
+
+        return self._search(node.right, key)

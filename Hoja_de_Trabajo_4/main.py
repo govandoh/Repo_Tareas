@@ -71,35 +71,31 @@ def buscarRegistro(id):
     except Exception as e:
         return jsonify({'error': f'Error al buscar el registro: {e}'}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True)
-    ##Punto 4 Mostrar información del grupo: 
-
-from flask import Flask, jsonify
-
-app = Flask(_name_)
-
 @app.route('/nombres', methods=['GET'])
 def get_data():
     # Datos quemados
     data = {
         "Nombre": "Jaqueline Mariela Figueroa",
-        "Carnet": "9490-21-4689"
+        "Carnet": "9490-21-4689",
+        "Participacion": "Nombres Integrantes"
     }
     data2 ={
-        "Nombre": "Gerardo Antonio Ovado",
-        "Carnet": "9490-21-7"
+        "Nombre": "Gerardo Antonio Ovando",
+        "Carnet": "9490-21-7",
+        "Participacion": "AVL y Carga Masiva"
     }
     data3 ={
         "Nombre": "Nery Otoniel Colorado",
-        "Carnet": "9490-22-4867"
+        "Carnet": "9490-22-4867",
+        "Participacion": "AVL y Insercion Manual"
     }
     data4 ={
         "Nombre": "Javier Pirir Gomez",
-        "Carnet": "9490-22-15282"
+        "Carnet": "9490-22-15282",
+        "Participacion": "AVL y Busqueda Registro"
     }
     return jsonify({"data": data, "data2": data2, "data3":data3, "data4":data4 })
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     app.run(debug=True)
     

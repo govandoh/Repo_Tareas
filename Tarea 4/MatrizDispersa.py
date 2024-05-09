@@ -6,14 +6,29 @@ class SparseMatrix:
     def __init__(self):
         self.matrizD = []
         self.matriz_esquema = []
+        self.column_names = ['age','anaemia','creatinine_phosphokinase','diabetes','ejection_fraction','high_blood_pressure','platelets','serum_creatinine','serum_sodium','sex','smoking','time', 'DEATH_EVENT']
+
     
     def leer_csv(self, nombre_archivo):
-        with open(nombre_archivo, 'r', newline='') as archivo_csv:
-            lector_csv = csv.reader(archivo_csv)
-            encabezados = next(lector_csv)
-            for fila in lector_csv:  # Por cada fila en el archivo CSV
-                self.matrizD.append(fila)   # Agregamos la fila como una lista a la matriz
-    
+        try:
+            with open(nombre_archivo, 'r', newline='') as archivo_csv:
+                lector_csv = csv.reader(archivo_csv)
+                encabezados = next(lector_csv)
+                for fila in lector_csv:  # Por cada fila en el archivo CSV
+                    self.matrizD.append(fila)   # Agregamos la fila como una lista a la matriz
+            self.convert_esquema()
+            return True
+        except FileNotFoundError:
+            False
+            
+    def insertar_manualmente(self):
+        nueva_fila = []
+        for columna in self.column_names:
+            valor = input(f"Ingrese el valor para '{columna}': ")
+            nueva_fila.append(valor)
+        self.matrizD.append(nueva_fila)
+        self.convert_esquema()
+
     def convert_esquema(self):
         matriz_datos = self.matrizD
         columnas = matriz_datos
@@ -69,18 +84,19 @@ def main():
     while True:
         print("\n1. Cargar datos desde archivo CSV")
         print("2. Ingresar datos manualmente")
-        print("3. Mostrar datos de la matriz dispersa")
-        print("4. Generar representación visual de la matriz dispersa")
+        print("3. Mostrar datos de la matriz dispersa (CRS)")
+        print("4. Generar representación visual de la matriz dispersa (CRS) Graphviz")
         print("5. Salir")
         choice = input("Ingrese su opción: ")
 
         if choice == '1':
             filename = input("Ingrese la ruta del archivo CSV: ")
-            matrix.leer_csv(filename)
-            if matrix.matriz_esquema == []:
-                matrix.convert_esquema()
+            if matrix.leer_csv(filename):
+                print("Datos del csv cargados en la matriz dispersa")
+            else:
+                print("Error añ cargar el archivo CSV")
         elif choice == '2':
-            print("¡Hasta luego!")
+            matrix.insertar_manualmente()
         elif choice == '3':
             grap = matrix.esquema_Grap(matrix.matriz_esquema)
             print (grap)

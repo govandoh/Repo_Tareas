@@ -1,78 +1,68 @@
 import csv
+import os
 from graphviz import Digraph
 
 class SparseMatrix:
     def __init__(self):
-        self.data = []
-        self.row = []
-        self.col = []
-        self.column_names = ['age','anaemia','creatinine_phosphokinase','diabetes','ejection_fraction','high_blood_pressure','platelets','serum_creatinine','serum_sodium','sex','smoking','time', 'DEATH_EVENT']
-
-    def load_from_csv(self, filename):
-        column_names = self.column_names
-        with open(filename, newline='') as csvfile:
-            reader = csv.DictReader(csvfile)
-            start_row = max(self.row) + 1 if self.row else 0
-            for i, row in enumerate(reader):
-                for key, value in row.items():
-                    if key == 'age':
-                        age = float(value)
-                        age = round(age)
-                        self.row.append(i + start_row)
-                        self.col.append(column_names.index(key))
-                        self.data.append(age)
-                    elif float(value) != 0:
-                        self.row.append(i + start_row)
-                        self.col.append(column_names.index(key))
-                        self.data.append(float(value))
-
+        self.matrizD = []
+        self.matriz_esquema = []
     
-    def manually_enter_data(self):
-        while True:
-            start_row = max(self.row) + 1 if self.row else 0
-            print("Ingrese los nuevos datos a agregar a la matriz dispersa:")
-            print(f"La siguiente fila disponible es la {start_row}")
-            self.row += [start_row] * len(self.column_names)
-            self.col += list(range(len(self.column_names)))
-            print(f"Ingrese los valores para {len(self.column_names)} columnas (presione enter después de ingresar cada valor):")
-            for j in range(len(self.column_names)):
-                value = float(input(f"Ingrese el valor para {self.column_names[j]}: "))
-                self.data.append(value)
-            print("\n¿Desea ingresar más datos manualmente?")
-            option = input("Ingrese 'si' para continuar ingresando datos o cualquier otra tecla para volver al menú principal: ")
-            if option.lower() != 'si':
-                break
+    def leer_csv(self, nombre_archivo):
+        with open(nombre_archivo, 'r', newline='') as archivo_csv:
+            lector_csv = csv.reader(archivo_csv)
+            encabezados = next(lector_csv)
+            for fila in lector_csv:  # Por cada fila en el archivo CSV
+                self.matrizD.append(fila)   # Agregamos la fila como una lista a la matriz
     
-    def display_ccs(self):
-        num_cols = len(self.column_names)
-        indptr = [0] * (num_cols + 1)
-        for j in self.col:
-            indptr[j + 1] += 1
-        for i in range(1, len(indptr)):
-            indptr[i] += indptr[i - 1]
-        # Imprime los datos en el formato (fila, columna): valor
-        for r, c, v in zip(self.row, self.col, self.data):
-            print(f"({r}, {c}): {v}")
+    def convert_esquema(self):
+        matriz_datos = self.matrizD
+        columnas = matriz_datos
+        columnas_filtradas = [[valor for valor in columna if valor != '0'] for columna in columnas]
+        self.matriz_esquema = columnas_filtradas
+        #print(self.matriz_esquema)
+        return self.matriz_esquema
+    
+    def esquema_Grap(self, lista):
+        lista = self.matriz_esquema
+        graphviz_code = "digraph G {\n"
+        # Definimos un nodo para cada elemento de la lista de listas
+        for sublist in lista:
+            line = " -> ".join(sublist)
+            graphviz_code += f'"{line}" \n'
+        graphviz_code += "}"
+        return graphviz_code
+    
+    def render_Esquema(self):
+        lista = self.convert_esquema()
+        total_sublistas = len(lista)
+        sublista_por_imagen = 15  # Número de sublistas por imagen
+        total_imagenes = total_sublistas // sublista_por_imagen + (total_sublistas % sublista_por_imagen > 0)
+        # Iterar sobre el rango de imágenes
+        for i in range(1, total_imagenes + 1):
+            graph = Digraph()
 
+            # Configuración del estilo de los nodos como cuadrados (boxes)
+            graph.attr('node', shape='box')
 
-    def generate_graph(self):
-        dot = Digraph(comment='Sparse Matrix', format='png')
+            # Calcular el rango de sublistas para esta imagen
+            start_index = i * sublista_por_imagen
+            end_index = min((i + 1) * sublista_por_imagen, total_sublistas)
 
-        num_rows = max(self.row) + 1 if self.row else 0
-        num_cols = len(self.column_names)
-        rows = [[] for _ in range(num_rows)]
+            # Agregar nodos para cada sublista en el rango
+            for sublist_index in range(start_index, end_index):
+                line = " => ".join(lista[sublist_index])
+                graph.node(line)
 
-        for i in range(len(self.row)):
-            rows[self.row[i]].append((self.col[i], self.data[i]))
+            # Agregar conexiones entre las sublistas adyacentes
+            for j in range(start_index, end_index - 1):
+                graph.edge(" => ".join(lista[j]), " => ".join(lista[j + 1]), style='dashed')
 
-        for i, row in enumerate(rows):
-            row.sort(key=lambda x: x[0])
-            dot.node(f'r{i}', f'Row {i}')
-            for j, val in row:
-                dot.node(f'c{j}', f'Col {j}')
-                dot.edge(f'r{i}', f'c{j}', label=str(val))
-        
-        dot.render('sparse_matrix', view=True)
+            # Definir la ruta de la imagen
+            nombre_imagen = f"Esquema_CRS_{i}.png"
+            ruta_completa = os.path.join("Tarea 4", "source", nombre_imagen)
+
+            # Renderizar la imagen
+            graph.render(filename=ruta_completa, format="png", view=False, cleanup=True)
 
 def main():
     matrix = SparseMatrix()
@@ -86,13 +76,16 @@ def main():
 
         if choice == '1':
             filename = input("Ingrese la ruta del archivo CSV: ")
-            matrix.load_from_csv(filename)
+            matrix.leer_csv(filename)
+            if matrix.matriz_esquema == []:
+                matrix.convert_esquema()
         elif choice == '2':
-            matrix.manually_enter_data()
+            print("¡Hasta luego!")
         elif choice == '3':
-            matrix.display_ccs()
+            grap = matrix.esquema_Grap(matrix.matriz_esquema)
+            print (grap)
         elif choice == '4':
-            matrix.generate_graph()
+            matrix.render_Esquema()
         elif choice == '5':
             print("¡Hasta luego!")
             break

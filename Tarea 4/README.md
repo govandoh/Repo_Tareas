@@ -33,7 +33,9 @@ Este proyecto consiste en la implementación de una matriz dispersa en Python ut
     2. Asegúrate de tener Python instalado en tu sistema.
     3. Instala las dependencias necesarias ejecutando pip install -r requirements.txt.
     4. Ejecuta el programa MatrizDispersa.py utilizando Python: python MatrizDispersa.py.
-    5. Sigue las instrucciones presentadas en el menú para cargar datos desde un archivo CSV,             ingresarlos manualmente, mostrar los datos de la matriz dispersa o generar una                 representación visual de la misma.
+    5. Sigue las instrucciones presentadas en el menú para cargar datos desde un archivo CSV,
+    ingresarlos manualmente, mostrar los datos de la matriz dispersa o generar una representación
+    visual de la misma.
     6. ¡Disfruta explorando la matriz dispersa!
 
 

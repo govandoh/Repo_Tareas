@@ -54,19 +54,68 @@ La implementación de la matriz dispersa se basa en el formato de Almacenamiento
 
 ## Ejecución y pruebas
 
-
-**Prueba y Ejecución Opcion 1**
-![Ejecución Opcion 1](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion1_Binario.png)
-
 **Prueba y Ejecución Opcion 2**
-![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion2_ContarDigitos.png)
+
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.1.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.2.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.3.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.4.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.5.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.6.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.7.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.8.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.9.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.10.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.11.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.12.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.113.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.14.jpg)
+![Ejecución Opcion 2](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.15.jpg)
+
 
 **Prueba y Ejecución Opcion 3**
-![Ejecución Opcion 3](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion3_RaizEntera.png)
+![Ejecución Opcion 3](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.16.jpg)
 
-**Prueba y Ejecución Opcion 4**
-![Ejecución Opcion 4](https://raw.githubusercontent.com/govandoh/Repo_Tareas/main/Tarea%202/source/Opcion4_DecimalToRomano.png)
+
+**Prueba y Ejecución opcion 4**
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_1.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_2.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_3.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_4.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_5.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_6.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_7.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_8.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_9.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_10.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_11.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_12.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_13.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_14.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_15.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_16.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_17.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_18.png.png)
+
+![Ejecución](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/Esquema_CRS_19.png.png)
 
 **Prueba y Ejecución Opcion 5**
-![Ejecución Opcion 5](https://github.com/govandoh/Repo_Tareas/blob/main/Tarea%202/source/Opcion5_SumaEnteros.png)
+![Ejecución Opcion 5](https://raw.githubusercontent.com/govandoh/Repo_Tareas/blob/main/Tarea%204/evidencias/opcion2.17.jpg)
 *** 

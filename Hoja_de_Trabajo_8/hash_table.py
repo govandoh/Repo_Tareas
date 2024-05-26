@@ -10,31 +10,20 @@ class HashTable:
         hash_index = self._hash(key)
         bucket = self.table[hash_index]
 
-        for i, (k, v) in enumerate(bucket):
-            if k == key:
-                bucket[i] = (key, value)
-                return
-
         bucket.append((key, value))
+        print(f"Insertado: clave = {key}, valor = {value}, hash = {hash_index}")
 
     def search_by_key(self, key):
         hash_index = self._hash(key)
         bucket = self.table[hash_index]
-
-        for k, v in bucket:
-            if k == key:
-                return v
-
-        return None
+        results = [v for k, v in bucket if k == key]
+        return results if results else None
 
     def search_by_value(self, value):
         results = []
         for bucket in self.table:
-            for k, v in bucket:
-                if v == value:
-                    results.append((k, v))
-
-        return results
+            results.extend([(k, v) for k, v in bucket if v == value])
+        return results if results else None
 
     def display(self):
         for i, bucket in enumerate(self.table):
@@ -52,20 +41,48 @@ class HashTable:
 if __name__ == "__main__":
     ht = HashTable()
 
-    # Inserción manual
-    ht.insert("key1", "value1")
-    ht.insert("key2", "value2")
-    ht.insert("key3", "value3")
+    while True:
+        print("\n--- Menú ---")
+        print("1. Insertar manualmente")
+        print("2. Buscar por clave")
+        print("3. Buscar por valor")
+        print("4. Mostrar tabla hash")
+        print("5. Cargar datos desde CSV")
+        print("6. Salir")
 
-    # Mostrar tabla hash
-    ht.display()
+        opcion = input("Seleccione una opción: ")
 
-    # Búsqueda por clave
-    print("\nBúsqueda por clave 'key1':", ht.search_by_key("key1"))
+        if opcion == '1':
+            key = input("Ingrese la clave: ")
+            value = input("Ingrese el valor: ")
+            ht.insert(key, value)
 
-    # Búsqueda por valor
-    print("\nBúsqueda por valor 'value2':", ht.search_by_value("value2"))
+        elif opcion == '2':
+            key = input("Ingrese la clave para buscar: ")
+            result = ht.search_by_key(key)
+            if result:
+                print(f"Valor encontrado para la clave '{key}': {result}")
+            else:
+                print("Clave no encontrada.")
 
-    # Cargar datos desde un archivo CSV
-    #ht.load_from_csv('data.csv')
-    #ht.display()
+        elif opcion == '3':
+            value = input("Ingrese el valor para buscar: ")
+            results = ht.search_by_value(value)
+            if results:
+                print(f"Resultados encontrados para el valor '{value}': {results}")
+            else:
+                print("Valor no encontrado.")
+
+        elif opcion == '4':
+            ht.display()
+
+        elif opcion == '5':
+            file_path = input("Ingrese la ruta del archivo CSV: ")
+            ht.load_from_csv(file_path)
+
+        elif opcion == '6':
+            print("Saliendo...")
+            break
+
+        else:
+            print("Opción no válida. Intente de nuevo.")

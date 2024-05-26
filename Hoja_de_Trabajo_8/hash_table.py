@@ -16,13 +16,15 @@ class HashTable:
     def search_by_key(self, key):
         hash_index = self._hash(key)
         bucket = self.table[hash_index]
-        results = [v for k, v in bucket if k == key]
-        return results if results else None
+        results = [(k, v) for k, v in bucket if k == key]
+        return (f"Index: {hash_index}",results) if results else None
 
     def search_by_value(self, value):
         results = []
-        for bucket in self.table:
-            results.extend([(k, v) for k, v in bucket if v == value])
+        for i, bucket in enumerate(self.table):
+            matches = [(k, v) for k, v in bucket if v == value]
+            if matches:
+                results.append((f"Index: {i}", matches))
         return results if results else None
 
     def display(self):
